@@ -36,9 +36,7 @@ def cv_loop(
                                                   capture_interval,
                                                   out_directory)
 
-            win_w, win_h = cv2.getWindowImageRect(window_name)[2:4]
-            resized_img = cv2.resize(img, (win_w, win_h))
-            cv2.imshow(window_name, resized_img)
+            cv2.imshow(window_name, img)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
