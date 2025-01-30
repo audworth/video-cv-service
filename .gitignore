@@ -88,3 +88,5 @@ dmypy.json
 
 # ruff
 .ruff_cache/
+
+imgs/
