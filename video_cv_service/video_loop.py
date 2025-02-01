@@ -1,8 +1,8 @@
-import cv2
 import time
 import logging
 from pathlib import Path
-from face_detection import process_video_frame
+import cv2
+from video_cv_service.face_detection import process_video_frame
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +14,7 @@ def cv_loop(
     out_directory: Path
 ) -> None:
     face_detector = cv2.CascadeClassifier(
-        "../cascades/haarcascade_frontalface_default.xml"
+        "./cascades/haarcascade_frontalface_default.xml"
     )
 
     cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)

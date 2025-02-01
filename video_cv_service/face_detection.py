@@ -1,9 +1,9 @@
-import cv2
 import time
 import logging
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple, List
+import cv2
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +29,7 @@ def save_detected_faces(
                            .strftime("%H-%M-%S-%d-%m-%Y")
         file_name: str = f"{now}.jpg"
         cv2.imwrite(str(out_directory / file_name), face_img)
-        logger.info(f"Сохранено изображение: {file_name} в {str(out_directory.resolve())}")
+        logger.info("Сохранено изображение: %s в %s", file_name, str(out_directory.resolve()))
 
 
 def process_video_frame(

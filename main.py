@@ -1,13 +1,13 @@
 import logging
 from pathlib import Path
-from video_loop import cv_loop
-from image_files_utils import clear_images_dir
+from video_cv_service.video_loop import cv_loop
+from video_cv_service.image_files_utils import clear_images_dir
 
 logger = logging.getLogger(__name__)
 
 
 def main() -> None:
-    out: Path = Path("../imgs/")
+    out: Path = Path("./imgs/")
 
     logging.basicConfig(
         format="%(levelname)s [%(asctime)s] %(name)s - %(message)s",
@@ -19,7 +19,7 @@ def main() -> None:
         clear_images_dir(out)
     else:
         out.mkdir(parents=True, exist_ok=True)
-        logger.info(f"Создана директория для изображений {str(out.resolve())}")
+        logger.info("Создана директория для изображений %s", str(out.resolve()))
 
     # 0 - веб камера
     cv_loop(video_address=0,
