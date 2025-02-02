@@ -43,7 +43,7 @@ def process_video_frame(
     faces = detect_faces(face_detector, gray)
 
     current_time: float = time.time()
-    if current_time - last_saved_time >= capture_interval:
+    if len(faces) > 0 and current_time - last_saved_time >= capture_interval:
         save_detected_faces(img, faces, out_directory, current_time)
         last_saved_time = current_time
 
